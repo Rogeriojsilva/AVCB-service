@@ -154,51 +154,7 @@
         </form>
     </div>
 
-    <script>
-        // Função para extrair ID do YouTube
-        const extractYouTubeId = url => {
-            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-            const match = url.match(regExp);
-            return (match && match[2].length === 11) ? match[2] : null;
-        };
-
-        // Gerenciar envio do formulário
-        document.getElementById('videoForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const formData = {
-                titulo: this.titulo.value.trim(),
-                descricao: this.descricao.value.trim(),
-                url: this.youtubeUrl.value.trim()
-            };
-
-            // Validar URL do YouTube
-            if(!extractYouTubeId(formData.url)) {
-                alert('Por favor, insira uma URL válida do YouTube!');
-                return;
-            }
-
-            // Salvar no localStorage
-            const videos = JSON.parse(localStorage.getItem('atualizacoes')) || [];
-            
-            const newVideo = {
-                ...formData,
-                videoId: extractYouTubeId(formData.url),
-                data: new Date().toLocaleDateString('pt-BR', {
-                    day: '2-digit',
-                    month: 'short',
-                    year: 'numeric'
-                }),
-                comentarios: 0
-            };
-
-            videos.unshift(newVideo);
-            localStorage.setItem('atualizacoes', JSON.stringify(videos));
-
-            // Redirecionar e resetar formulário
-            window.location.href = '../index.html';
-            this.reset();
-        });
-    </script>
+ 
+    <script src="/assets/js/adVideos.js" defer></script>
 </body>
 </html>
