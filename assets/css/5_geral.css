@@ -166,7 +166,7 @@
         line-height: 1.6;
         font-size: 1rem;
     }
-    /* Área de Vídeos Isolada */
+    /* Área de Vídeos Isolada - Ajustada para rolagem infinita */
     .sv-videos-scroll {
         height: calc(100vh - 200px);
         overflow-y: auto;
@@ -174,23 +174,33 @@
         background: white;
         border-radius: 10px;
         box-shadow: var(--sv-sombra);
+        scrollbar-width: thin;
+        scrollbar-color: var(--cor-destaque) var(--cor-fundo);
     }
     .sv-lista-videos {
         display: grid;
         gap: 1.5rem;
         padding: 1rem;
+        grid-template-rows: auto;
     }
-    /* Cards de Vídeo Específicos */
+    /* Cards de Vídeo Específicos - Otimizados para adição infinita */
     .sv-video-card {
         background: white;
         padding: 1.2rem;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        transition: transform 0.2s ease;
+    }
+    
+    .sv-video-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .sv-video-titulo {
         color: #222;
         font-size: 1.2rem;
         margin-bottom: 0.8rem;
+        font-weight: 600;
     }
     .sv-video-player {
         position: relative;
@@ -198,6 +208,7 @@
         border-radius: 6px;
         overflow: hidden;
         background: #000;
+        margin-bottom: 0.8rem;
     }
     .sv-iframe {
         position: absolute;
@@ -210,17 +221,42 @@
     .sv-video-desc {
         color: #666;
         font-size: 0.9rem;
-        margin-top: 0.8rem;
         line-height: 1.4;
     }
-    /* Scrollbar Específica */
+    /* Scrollbar Personalizada */
     .sv-videos-scroll::-webkit-scrollbar {
         width: 8px;
     }
-    .sv-videos-scroll::-webkit-scrollbar-thumb {
-        background: #ced4da;
+    
+    .sv-videos-scroll::-webkit-scrollbar-track {
+        background: var(--cor-fundo);
         border-radius: 4px;
     }
+    
+    .sv-videos-scroll::-webkit-scrollbar-thumb {
+        background: var(--cor-destaque);
+        border-radius: 4px;
+    }
+    
+    .sv-videos-scroll::-webkit-scrollbar-thumb:hover {
+        background: var(--cor-hover);
+    }
+    /* Responsividade Ajustada */
+    @media (max-width: 768px) {
+        .sv-videos-scroll {
+            height: calc(100vh - 180px);
+            margin-bottom: 2rem;
+        }
+        
+        .sv-video-card {
+            padding: 1rem;
+        }
+        
+        .sv-video-titulo {
+            font-size: 1.1rem;
+        }
+    }
+    
     /* Responsivo Isolado */
     @media (min-width: 768px) {
         .sv-container {

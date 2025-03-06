@@ -4,111 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Vídeos</title>
-    <style>
-        :root {
-            /* Paleta de cores existente */
-            --cor-branca: #F5F5F5;
-            --cor-padrao: #01172E;
-            --cor-destaque: rgba(255, 255, 255, 0.08);
-            --cor-botao-btn-bg: linear-gradient(90deg, #E67E22, #FF9800);
-            --cor-botao-btn-bg-hover: linear-gradient(90deg, #0F9D58, #1EBE5D);
-            --border-radius: 8px;
-            --sombra: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        body {
-            background: var(--cor-padrao);
-            min-height: 100vh;
-            display: grid;
-            place-items: center;
-            padding: 1rem;
-        }
-
-        .form-container {
-            background: var(--cor-destaque);
-            width: 100%;
-            max-width: 600px;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--sombra);
-        }
-
-        .form-title {
-            color: var(--cor-branca);
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-        }
-
-        .video-form {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: grid;
-            gap: 0.5rem;
-        }
-
-        label {
-            color: var(--cor-branca);
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-
-        input,
-        textarea {
-            padding: 0.8rem;
-            border: 2px solid transparent;
-            border-radius: var(--border-radius);
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--cor-branca);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        input:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--cor-branca);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .submit-btn {
-            background: var(--cor-botao-btn-bg);
-            color: var(--cor-branca);
-            padding: 1rem;
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: var(--cor-botao-btn-bg-hover);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 480px) {
-            .form-container {
-                padding: 1.5rem;
-            }
-            
-            input,
-            textarea {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/1_hoot.css">
+    <link rel="stylesheet" href="../assets/css/utilities/inseriVideos.css">
+    <!-- Estilos mantidos conforme fornecido -->
 </head>
 <body>
     <div class="form-container">
@@ -133,7 +31,7 @@
                     id="youtubeUrl" 
                     name="youtubeUrl"
                     required
-                    pattern="^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+"
+                    pattern="^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/\."
                     placeholder="https://www.youtube.com/watch?v=..."
                 >
             </div>
@@ -154,7 +52,6 @@
         </form>
     </div>
 
- 
-    <script src="/assets/js/adVideos.js" defer></script>
+    <script src="/assets/js/adVideos.js"></script>
 </body>
 </html>
