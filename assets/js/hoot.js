@@ -5,34 +5,54 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Mapeamento de elementos e variáveis
         const elementsMap = {
-            'phone-link': '--contact-phone-number',
-            'whatsapp-link': '--contact-whatsapp-number',
-            'phone-text': '--contact-phone-text',
-            'whatsapp-text': '--contact-whatsapp-text'
+            'phone-link': {
+                var: '--contact-phone-number',
+                attr: 'href'
+            },
+            'whatsapp-link': {
+                var: '--contact-whatsapp-number',
+                attr: 'href'
+            },
+            'phone-text': {
+                var: '--contact-phone-text',
+                attr: 'textContent'
+            },
+            'whatsapp-text': {
+                var: '--contact-whatsapp-text',
+                attr: 'textContent'
+            }
         };
 
         // Atualiza todos os elementos
-        Object.entries(elementsMap).forEach(([id, variable]) => {
-            const element = document.getElementById(id);
-            if(element) {
-                const value = style.getPropertyValue(variable).replace(/"/g, '');
+        Object.entries(elementsMap).forEach(([id, config]) => {
+            const elements = document.querySelectorAll(`[data-hoot="${id}"]`);
+            if(elements && elements.length > 0) {
+                const value = style.getPropertyValue(config.var).trim().replace(/"/g, '');
                 
-                if(element.tagName === 'A') {
-                    element.href = value;
-                } else {
-                    element.textContent = value;
-                }
+                elements.forEach(element => {
+                    if(config.attr === 'href' || config.attr === 'src') {
+                        element.setAttribute(config.attr, value);
+                    } else {
+                        element[config.attr] = value;
+                    }
+                });
             }
         });
     }
 
     // Inicialização
     loadHootData();
-});
 
-const elementsMap = {
-    'phone-link': '--contact-phone-number',    // ID do link do telefone
-    'whatsapp-link': '--contact-whatsapp-number', // ID do link do WhatsApp
-    'phone-text': '--contact-phone-text',      // ID do texto do telefone
-    'whatsapp-text': '--contact-whatsapp-text' // ID do texto do WhatsApp
-};
+    // Initialize mutation observer for dynamic content
+    const observer = new MutationObserver((mutations) => {
+        loadHootData();
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+    // Handle HTMX content swaps
+    document.addEventListener('htmx:afterSwap', loadHootData);
+});

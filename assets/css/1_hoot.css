@@ -9,13 +9,12 @@
 
      --contact-phone-number: "tel:+5531993335999";
      --contact-phone-text: "(31) 99333-5999";
-    
-   
+  
  
      /* ==============================================
         🎨 PALETA PRIMÁRIA (Autoridade & Confiança)
        ============================================== */
-       --color-primary-#01172E: #01172E;    /* Dark Navy - Base brand */
+       --color-primary-900: #01172E;    /* Dark Navy - Base brand */
        --color-primary-700: #032C4D;    /* Medium Navy */
        --color-primary-500: #0761A3;     /* Trust Blue */
        --color-primary-300: #4A90E2;     /* Interactive Blue */

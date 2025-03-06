@@ -106,29 +106,6 @@
     font-weight: 300;
 }
 
-.hero__cta {
-    display: inline-flex;
-    padding: 0.8rem 1.5rem;
-    align-items: center;
-    justify-content: center;
-    background: var(--accent);
-    color: var(--text-light);
-    border-radius: 50px;
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    min-width: 180px;
-    white-space: nowrap;
-}
-
-.hero__cta:hover,
-.hero__cta:focus {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(255,77,0,0.4);
-    outline: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
     .hero__slide,
     .hero__media,

@@ -100,15 +100,14 @@
    
      
     <!-- Estilos -->
-    <link rel="stylesheet" href="../assets/css/0_inicio.css">
-    <link rel="stylesheet" href="../assets/css/10_footer.css" media="screen">
-    <link rel="stylesheet" href="../assets/css/1_hoot_rev1.css">
+    <link rel="stylesheet" href="../assets/css/0_pagina.css">
+    <link rel="stylesheet" href="../assets/css/1_hoot.css">
     <link rel="stylesheet" href="../assets/css/2_contato.css">
-    <link rel="stylesheet" href="../assets/css/3_menu.css">
+    <link rel="stylesheet" href="../assets/css/3_menu-r1.css">
     <link rel="stylesheet" href="../assets/css/4_banner.css">
-    <link rel="stylesheet" href="../assets/css/5_about.css">
-    <link rel="stylesheet" href="../assets/css/">
-
+    <link rel="stylesheet" href="../assets/css/5_geral.css">
+    <link rel="stylesheet" href="../assets/css/9_footer.css">
+  
 
  
 </head>
@@ -117,49 +116,53 @@
 
 <body>
     <!-- Top Bar -->
-    <!-- Remove this entire section -->
     <div class="top-bar">
         <div class="container">
             <div class="social-contacts">
-                <!-- Contact Buttons -->
-              <a href="./principal/pagina de inseçao/atualizacao.html"
-              
-                <a data-text="--contact-whatsapp-text" data-href="--contact-whatsapp-number"
-                    class="top-contact-btn whatsapp" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                    <span id="phone-number"></span>
+                <!-- Link corrigido -->
+                <a href="/principal/pagina-de-insercao/atualizacao.html" class="update-link">
+                    
                 </a>
-            
-                <a data-text="--contact-phone-text" data-href="--contact-phone-number"
-                     class="top-contact-btn phone" aria-label="Telefone">
-                    <i class="fas fa-phone"></i>
-                    <span id="whatsapp-number"></span>
+    
+                <!-- Botões de Contato Corrigidos -->
+                <a data-hoot="whatsapp-link" class="top-contact-btn whatsapp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-hoot="whatsapp-text"></span>
                 </a>
                 
-                <!-- Social Media -->
+                <a data-hoot="phone-link" class="top-contact-btn phone" aria-label="Telefone">
+                    <i class="fas fa-phone"></i>
+                    <span data-hoot="phone-text"></span>
+                </a>
+    
+                <!-- Redes Sociais (mantido) -->
                 <div class="social-media">
-                    <a href="https://facebook.com/your-page" 
-                         aria-label="Facebook" 
-                         target="_blank" 
-                         rel="noopener">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://instagram.com/your-page" 
-                         aria-label="Instagram"
-                         target="_blank" 
-                         rel="noopener">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://linkedin.com/company/your-page" 
-                         aria-label="LinkedIn"
-                         target="_blank" 
-                         rel="noopener">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
+                    <div class="social-media">
+                        <a href="https://facebook.com/your-page" 
+                             aria-label="Facebook" 
+                             target="_blank" 
+                             rel="noopener">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://instagram.com/your-page" 
+                             aria-label="Instagram"
+                             target="_blank" 
+                             rel="noopener">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/your-page" 
+                             aria-label="LinkedIn"
+                             target="_blank" 
+                             rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <!-- ... mesmos links sociais ... -->
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Existing header -->
     <header class="header">
@@ -652,17 +655,26 @@
                     </h1>
                     <p id="slide1Sub" class="hero__subtitle" itemprop="description">
                         Regularize seu estabelecimento, evite multas e proteja seu patrimônio com prevenção e combate a incêndios.
-                    </p>
-                    <a href="#contato" class="hero__cta" 
-                       aria-label="Solicitar proposta para projeto de incêndio"
-                       itemprop="potentialAction">
-                       <div data-text="--contact-whatsapp-text" data-href="--contact-whatsapp-number"
-                       class="top-contact-btn whatsapp" aria-label="WhatsApp">
-                       <i class="fab fa-whatsapp"></i>
-                       <span id="phone-number"></span>
-                       </div>
-                        Solicitar Proposta Agora
-                    </a>
+                    </p><br>
+                    <div class="hero__cta">
+                        <div class="container">
+                            <div class="social-contacts">
+                                <!-- Link corrigido -->
+                                <a href="/principal/pagina-de-insercao/atualizacao.html" class="update-link">
+                                    
+                                </a>
+                    
+                                <!-- Botões de Contato Corrigidos -->
+                                <a data-hoot="whatsapp-link" class="top-contact-btn whatsapp" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span data-hoot="whatsapp-text"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                 
                 </div>
             </div>
         </article>
@@ -691,16 +703,26 @@
                     <p id="slide2Sub" class="hero__subtitle" itemprop="description">
                         Consultoria especializada em Saúde e Segurança do Trabalho.
                     </p>
-                    <a href="#contato" class="hero__cta" 
-                       aria-label="Solicitar proposta para projeto de incêndio"
-                       itemprop="potentialAction">
-                       <div data-text="--contact-whatsapp-text" data-href="--contact-whatsapp-number"
-                       class="top-contact-btn whatsapp" aria-label="WhatsApp">
-                       <i class="fab fa-whatsapp"></i>
-                       <span id="phone-number"></span>
-                       </div>
-                        Solicitar Proposta Agora
-                    </a>
+
+
+                  </p><br>
+                  <div class="hero__cta">
+                        <div class="container">
+                            <div class="social-contacts">
+                                <!-- Link corrigido -->
+                                <a href="/principal/pagina-de-insercao/atualizacao.html" class="update-link">
+                                    
+                                </a>
+                    
+                                <!-- Botões de Contato Corrigidos -->
+                                <a data-hoot="whatsapp-link" class="top-contact-btn whatsapp" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span data-hoot="whatsapp-text"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </article>
@@ -730,16 +752,24 @@
                     <p id="slide3Sub" class="hero__subtitle" itemprop="description">
                         Projetos aprovados pelo Corpo de Bombeiros + Instalação Profissional
                     </p>
-                    <a href="#contato" class="hero__cta" 
-                    aria-label="Solicitar proposta para projeto de incêndio"
-                    itemprop="potentialAction">
-                    <div data-text="--contact-whatsapp-text" data-href="--contact-whatsapp-number"
-                    class="top-contact-btn whatsapp" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                    <span id="phone-number"></span>
+                </p><br>
+                <div class="hero__cta">
+                    <div class="container">
+                        <div class="social-contacts">
+                            <!-- Link corrigido -->
+                            <a href="/principal/pagina-de-insercao/atualizacao.html" class="update-link">
+                                
+                            </a>
+                
+                            <!-- Botões de Contato Corrigidos -->
+                            <a data-hoot="whatsapp-link" class="top-contact-btn whatsapp" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                                <span data-hoot="whatsapp-text"></span>
+                            </a>
+                        </div>
                     </div>
-                     Solicitar Proposta Agora
-                 </a>
+                </div>
+
                 </div>
             </div>
         </article>
@@ -1129,10 +1159,11 @@
      📞 XXXXX MAIN CONTAINER 
     ============================================== =====================================================*/ -->
 
-<script src="./assets/js/hoot.js"></script>
-<script src="./assets/js/1_menu.js"></script>
-<script src="./assets/js/form_flooter.js"></script>
-<script src="./assets/js/adVideos.js"></script>
+<script src="../assets/js/hoot.js"></script>
+<script src="../assets/js/1_menu.js"></script>
+<script src="../assets/js/form_flooter.js"></script>
+<script src="../assets/js/adVideos.js"></script>
+<script src="../assets/js/"></script>
 </body>
 </html>
 

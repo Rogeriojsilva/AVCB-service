@@ -239,34 +239,54 @@
 <body>
 
 
-    <div class="cont-bar">
-        <div class="cont-container">
-            <!-- Área de Contatos -->
-            <div class="cont-details">
-                <a href="#" class="cont-btn cont-phone" aria-label="Telefone" id="phone-link">
-                    <i class="fas fa-phone"></i>
-                    <span class="cont-text" id="phone-text"></span>
+     <!-- Top Bar -->
+     <div class="top-bar">
+        <div class="container">
+            <div class="social-contacts">
+                <!-- Link corrigido -->
+                <a href="/principal/pagina-de-insercao/atualizacao.html" class="update-link">
+                    
                 </a>
-                <a href="#" class="cont-btn cont-whatsapp" aria-label="WhatsApp" id="whatsapp-link">
-                    <i class="fab fa-whatsapp"></i>
-                    <span class="cont-text" id="whatsapp-text"></span>
-                </a>
-            </div>
     
-            <!-- Área de Redes Sociais -->
-            <div class="cont-social">
-                <a href="https://facebook.com/seu-perfil" target="_blank" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
+                <!-- Botões de Contato Corrigidos -->
+                <a data-hoot="whatsapp-link" class="top-contact-btn whatsapp" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-hoot="whatsapp-text"></span>
                 </a>
-                <a href="https://instagram.com/seu-perfil" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
+                
+                <a data-hoot="phone-link" class="top-contact-btn phone" target="_blank"aria-label="Telefone">
+                    <i class="fas fa-phone"></i>
+                    <span data-hoot="phone-text"></span>
                 </a>
-                <a href="https://linkedin.com/in/seu-perfil" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
+    
+                <!-- Redes Sociais (mantido) -->
+                <div class="social-media">
+                    <div class="social-media">
+                        <a href="https://facebook.com/your-page" 
+                             aria-label="Facebook" 
+                             target="_blank" 
+                             rel="noopener">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://instagram.com/your-page" 
+                             aria-label="Instagram"
+                             target="_blank" 
+                             rel="noopener">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/your-page" 
+                             aria-label="LinkedIn"
+                             target="_blank" 
+                             rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <!-- ... mesmos links sociais ... -->
+                </div>
             </div>
         </div>
     </div>
+
 
     <!-- Existing header -->
     <header class="header">
@@ -760,16 +780,24 @@
                     <p id="slide1Sub" class="hero__subtitle" itemprop="description">
                         Regularize seu estabelecimento, evite multas e proteja seu patrimônio com prevenção e combate a incêndios.
                     </p>
-                    <a href="#contato" class="hero__cta" 
-                       aria-label="Solicitar proposta para projeto de incêndio"
-                       itemprop="potentialAction">
-                       <div data-text="--contact-whatsapp-text" data-href="--contact-whatsapp-number"
-                       class="top-contact-btn whatsapp" aria-label="WhatsApp">
-                       <i class="fab fa-whatsapp"></i>
-                       <span id="phone-number"></span>
-                       </div>
-                        Solicitar Proposta Agora
-                    </a>
+
+                   <div class="hero__cta">
+                        <div class="container">
+                            <div class="social-contacts">
+                                <!-- Link corrigido -->
+                                <a href="/principal/pagina-de-insercao/atualizacao.html" class="update-link">
+                                    
+                                </a>
+                    
+                                <!-- Botões de Contato Corrigidos -->
+                                <a data-hoot="whatsapp-link" class="top-contact-btn whatsapp" target="_blank"aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span>Solicitar Proposta Agora</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </article>
@@ -798,16 +826,25 @@
                     <p id="slide2Sub" class="hero__subtitle" itemprop="description">
                         Consultoria especializada em Saúde e Segurança do Trabalho.
                     </p>
-                    <a href="#contato" class="hero__cta" 
-                       aria-label="Solicitar proposta para projeto de incêndio"
-                       itemprop="potentialAction">
-                       <div data-text="--contact-whatsapp-text" data-href="--contact-whatsapp-number"
-                       class="top-contact-btn whatsapp" aria-label="WhatsApp">
-                       <i class="fab fa-whatsapp"></i>
-                       <span id="phone-number"></span>
-                       </div>
-                        Solicitar Proposta Agora
-                    </a>
+
+
+                    <div class="hero__cta">
+                    <div class="container">
+                        <div class="social-contacts">
+                            <!-- Link corrigido -->
+                            <a href="/principal/pagina-de-insercao/atualizacao.html" class="update-link">
+                                
+                            </a>
+                
+                            <!-- Botões de Contato Corrigidos -->
+                            <a data-hoot="whatsapp-link" class="top-contact-btn whatsapp" target="_blank" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                                
+                                <span>Solicitar Proposta Agora</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </article>
@@ -837,16 +874,26 @@
                     <p id="slide3Sub" class="hero__subtitle" itemprop="description">
                         Projetos aprovados pelo Corpo de Bombeiros + Instalação Profissional
                     </p>
-                    <a href="#contato" class="hero__cta" 
-                    aria-label="Solicitar proposta para projeto de incêndio"
-                    itemprop="potentialAction">
-                    <div data-text="--contact-whatsapp-text" data-href="--contact-whatsapp-number"
-                    class="top-contact-btn whatsapp" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                    <span id="phone-number"></span>
+
+
+                  <div class="hero__cta">
+                        <div class="container">
+                            <div class="social-contacts">
+                                <!-- Link corrigido -->
+                                <a href="/principal/pagina-de-insercao/atualizacao.html" class="update-link">
+                                    
+                                </a>
+                    
+                                <!-- Botões de Contato Corrigidos -->
+                                <a data-hoot="whatsapp-link" class="top-contact-btn whatsapp" target="_blank" aria-label="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                  
+                                    <span>Solicitar Proposta Agora</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                     Solicitar Proposta Agora
-                 </a>
+
                 </div>
             </div>
         </article>

@@ -1,12 +1,4 @@
-:root {
-    /* ==============================================
-       📞 DADOS DE CONTATO (SEO/UX Friendly)
-      ============================================== */
-    --contact-whatsapp-number: "https://wa.me/5531993335999";
-    --contact-whatsapp-text: "(31) 99333-5999";
-    --contact-phone-number: "tel:+5531993335999";
-    --contact-phone-text: "(31) 99333-5999";
-}
+
 
 /* ... (mantenha o restante do CSS original) ... */
 
@@ -163,6 +155,33 @@
         font-size: 1.8rem;
     }
 }
+
+/*BOTAO DO SEÇAO HEROS*/
+
+
+.hero__cta {
+    display: inline-flex;
+    padding: 0.8rem 1.5rem;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: var(--text-light);
+    border-radius: 50px;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    min-width: 180px;
+    white-space: nowrap;
+}
+
+.hero__cta:hover,
+.hero__cta:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(255,77,0,0.4);
+    outline: none;
+}
+
 
 
 
