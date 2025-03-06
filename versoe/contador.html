@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Acessos com Mapa</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        /* Estilos CSS melhorados */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2196F3;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .map-container {
+            width: 200px;
+            height: 120px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .loading {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e3f2fd;
+            color: #1976D2;
+            border-radius: 4px;
+        }
+
+        .coordinates {
+            font-family: monospace;
+            color: #2e7d32;
+        }
+    </style>
+    <!-- Favicon (pugn) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📍</text></svg>">
+</head>
+<body>
+    <h1>Registro Geográfico de Acessos</h1>
+    <div class="loading" id="loading">Detectando sua localização...</div>
+    <table id="accessTable">
+        <thead>
+            <tr>
+                <th>Data/Hora</th>
+                <th>Coordenadas</th>
+                <th>Localização</th>
+                <th>Mapa</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Obter localização via IP como fallback
+        async function getIPLocation() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                return {
+                    city: data.city,
+                    state: data.region,
+                    lat: data.latitude,
+                    lon: data.longitude
+                };
+            } catch (error) {
+                console.error('Erro ao obter localização via IP:', error);
+                return null;
+            }
+        }
+
+        // Formatar data e hora
+        function formatDateTime(date) {
+            return new Intl.DateTimeFormat('pt-BR', {
+                dateStyle: 'short',
+                timeStyle: 'medium'
+            }).format(date);
+        }
+
+        // Criar mapa Leaflet
+        function createMap(containerId, lat, lon) {
+            const map = L.map(containerId).setView([lat, lon], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            L.marker([lat, lon]).addTo(map);
+            return map;
+        }
+
+        // Atualizar tabela com novos dados
+        function updateTableEntry({timestamp, coords, city, state}) {
+            const tableBody = document.getElementById('tableBody');
+            const newRow = document.createElement('tr');
+            
+            // Data/Hora
+            const timeCell = document.createElement('td');
+            timeCell.textContent = formatDateTime(timestamp);
+            
+            // Coordenadas
+            const coordCell = document.createElement('td');
+            coordCell.innerHTML = `<span class="coordinates">${coords.lat.toFixed(4)}, ${coords.lon.toFixed(4)}</span>`;
+            
+            // Localização
+            const locationCell = document.createElement('td');
+            locationCell.textContent = `${city || 'N/A'}/${state || 'N/A'}`;
+            
+            // Mapa
+            const mapCell = document.createElement('td');
+            const mapContainer = document.createElement('div');
+            mapContainer.className = 'map-container';
+            mapContainer.id = `map-${Date.now()}`;
+            mapCell.appendChild(mapContainer);
+            
+            // Montar linha
+            newRow.appendChild(timeCell);
+            newRow.appendChild(coordCell);
+            newRow.appendChild(locationCell);
+            newRow.appendChild(mapCell);
+            
+            tableBody.insertBefore(newRow, tableBody.firstChild);
+            
+            // Inicializar mapa após a inserção no DOM
+            setTimeout(() => {
+                createMap(mapContainer.id, coords.lat, coords.lon);
+            }, 100);
+        }
+
+        // Carregar dados iniciais
+        async function loadLocationData() {
+            const loading = document.getElementById('loading');
+            
+            try {
+                // Tentar geolocalização precisa
+                const position = await new Promise((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(resolve, reject, {
+                        enableHighAccuracy: true,
+                        timeout: 5000
+                    });
+                });
+                
+                const coords = {
+                    lat: position.coords.latitude,
+                    lon: position.coords.longitude
+                };
+                
+                // Obter dados do IP para cidade/estado
+                const ipData = await getIPLocation();
+                
+                updateTableEntry({
+                    timestamp: new Date(),
+                    coords,
+                    city: ipData?.city,
+                    state: ipData?.state
+                });
+                
+            } catch (geoError) {
+                console.warn('Usando localização aproximada por IP');
+                const ipData = await getIPLocation();
+                
+                if(ipData) {
+                    updateTableEntry({
+                        timestamp: new Date(),
+                        coords: {lat: ipData.lat, lon: ipData.lon},
+                        city: ipData.city,
+                        state: ipData.state
+                    });
+                } else {
+                    loading.textContent = 'Não foi possível obter a localização';
+                }
+            }
+            
+            loading.style.display = 'none';
+        }
+
+        // Iniciar quando a página carregar
+        window.onload = loadLocationData;
+    </script>
+</body>
+</html>

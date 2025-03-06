@@ -1,0 +1,80 @@
+:root {
+
+
+   /* ==============================================
+      📞 DADOS DE CONTATO (SEO/UX Friendly)
+     ============================================== */
+     --contact-whatsapp-number: "https://wa.me/5531993335999";
+     --contact-whatsapp-text: "(31) 99333-5999";
+
+     --contact-phone-number: "tel:+5531993335999";
+     --contact-phone-text: "(31) 99333-5999";
+    
+   
+ 
+     /* ==============================================
+        🎨 PALETA PRIMÁRIA (Autoridade & Confiança)
+       ============================================== */
+       --color-primary-#01172E: #01172E;    /* Dark Navy - Base brand */
+       --color-primary-700: #032C4D;    /* Medium Navy */
+       --color-primary-500: #0761A3;     /* Trust Blue */
+       --color-primary-300: #4A90E2;     /* Interactive Blue */
+       --color-primary-100: #E3F2FD;     /* Light Blue BG */
+   
+     /* ==============================================
+        🎨 PALETA SECUNDÁRIA (Engajamento & Energia)
+       ============================================== */
+       --color-secondary-900: #FF4D00;   /* Vibrant Orange */
+       --color-secondary-700: #FF9800;   /* Warm CTA */
+       --color-secondary-500: #FFC107;   /* Attention Yellow */
+       --color-secondary-300: #FFE082;   /* Highlight */
+   
+     /* ==============================================
+        🎨 NEUTRALS (Hierarquia Visual & Leiturabilidade)
+       ============================================== */
+       --color-neutral-900: #1A1A1A;     /* Main Text */
+       --color-neutral-700: #4D4D4D;     /* Subtext */
+       --color-neutral-500: #808080;     /* Disabled */
+       --color-neutral-300: #CCCCCC;     /* Borders */
+       --color-neutral-100: #F8F9FA;     /* BG Light */
+       --color-neutral-50: #FFFFFF;      /* Pure White */
+   
+     /* ==============================================
+        🎨 FEEDBACK (Microinterações)
+       ============================================== */
+       --color-success: #28A745;         /* Confirmações */
+       --color-warning: #FFC107;         /* Alertas */
+       --color-error: #DC3545;           /* Erros */
+       --color-info: #17A2B8;            /* Informações */
+   
+     /* ==============================================
+        🎭 GRADIENTES (Profundidade Visual)
+       ============================================== */
+       --gradient-hero: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-500) 100%);
+       --gradient-cta: linear-gradient(90deg, var(--color-secondary-900) 0%, var(--color-secondary-700) 100%);
+       --gradient-card: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(245,245,245,0.7) 100%);
+   
+     /* ==============================================
+        🕶️ DARK MODE (Pré-configuração)
+       ============================================== */
+       @media (prefers-color-scheme: dark) {
+         --color-neutral-900: #E0E0E0;
+         --color-neutral-700: #B0B0B0;
+         --color-neutral-100: #1A1A1A;
+         --color-neutral-50: #2D2D2D;
+       }
+   
+     /* ==============================================
+        🖥️ VARIÁVEIS DE APLICAÇÃO
+       ============================================== */
+       --color-text: var(--color-neutral-900);
+       --color-headings: var(--color-primary-900);
+       --color-links: var(--color-primary-500);
+       --color-links-hover: var(--color-primary-300);
+       --color-bg: var(--color-neutral-100);
+       --color-bg-alt: var(--color-neutral-50);
+   
+       --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+       --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+       --shadow-lg: 0 8px 24px rgba(0,0,0,0.16);
+   }
