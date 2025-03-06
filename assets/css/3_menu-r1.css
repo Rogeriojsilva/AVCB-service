@@ -1,0 +1,432 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Variáveis de Cores com Melhor SEO e UX */
+:root {
+    --header-bg: #021222;        /* Cor de fundo do header */
+    --menu-text: #ffffff;        /* Cor do texto no menu */
+    --menu-hover: #003366;       /* Cor ao passar o mouse */
+    
+    --submenu-lvl-1: #0056B3;    /* Cor do primeiro nível do submenu */
+    --submenu-lvl-2: #0073E6;    /* Cor do segundo nível do submenu */
+    --submenu-lvl-3: #3399FF;    /* Cor do terceiro nível do submenu */
+    
+    --submenu-hover-1: #004080;  /* Hover no primeiro nível */
+    --submenu-hover-2: #0050A3;  /* Hover no segundo nível */
+    --submenu-hover-3: #0080FF;  /* Hover no terceiro nível */
+    
+    --mobile-menu-bg: #002D5B;   /* Cor do menu no mobile */
+}
+
+/* Configuração Geral */
+body {
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+    background: var(--header-bg);
+    padding: 15px 0;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo img {
+    height: 50px;
+}
+
+/* Botão Menu Mobile */
+.menu_toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--menu-text);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Menu Principal */
+.menu_nivel_1 {
+    display: flex;
+}
+
+.menu_lista {
+    list-style: none;
+    display: flex;
+}
+
+.menu_item {
+    position: relative;
+}
+
+/* Links do Menu */
+.menu_lista > li > a {
+    text-decoration: none;
+    color: var(--menu-text);
+    padding: 12px 15px;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.menu_lista > li > a:hover {
+    background: var(--menu-hover);
+}
+
+/* Submenus */
+.menu_nivel_2,
+.menu_nivel_3,
+.menu_nivel_4 {
+    display: none;
+    position: absolute;
+    background: var(--submenu-lvl-1);
+    list-style: none;
+    width: 220px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+}
+
+
+.menu_nivel_3 ul  ,
+.menu_nivel_4 ul  { 
+   
+    margin-left: 35px;
+    margin-top: 5px;
+}
+
+/* Diferentes Cores para Cada Nível */
+.menu_nivel_2 {
+    background: var(--submenu-lvl-1);
+}
+
+.menu_nivel_3 {
+    background: var(--submenu-lvl-2);
+}
+
+.menu_nivel_4 {
+    background: var(--submenu-lvl-3);
+}
+
+/* 📌 NOVO: Ajuste no efeito hover para melhorar SEO */
+.menu_nivel_2 li a {
+    background: var(--submenu-lvl-1);
+}
+
+.menu_nivel_2 li a:hover {
+    background: var(--submenu-hover-1);
+}
+
+.menu_nivel_3 li a {
+    background: var(--submenu-lvl-2);
+
+}
+
+.menu_nivel_3 li a:hover {
+    background: var(--submenu-hover-2);
+    
+}
+
+.menu_nivel_4 li a {
+    background: var(--submenu-lvl-3);
+   
+}
+
+.menu_nivel_4 li a:hover {
+    background: var(--submenu-hover-3);
+}
+
+/* 📌 NOVO: Ajuste no espaçamento entre níveis */
+.menu_nivel_2 li a,
+.menu_nivel_3 li a,
+.menu_nivel_4 li a {
+    color: var(--menu-text);
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+/* Top Bar and Header Styles */
+/* Fixed Header Styles */
+.top-bar {
+    height: 40px;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+}
+/* Remove top-bar related styles and adjust header positioning */
+.header {
+    width: 100%;
+    background: var(--header-bg);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust main wrapper spacing */
+.main-wrapper {
+    width: 100%;
+    padding-top: 90px; /* Adjusted for header height only */
+}
+
+/* Update mobile menu position */
+@media (max-width: 768px) {
+    .menu_nivel_1 {
+        position: fixed;
+        top: 80px; /* Adjusted to account for header only */
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+}
+.top-bar .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding: 0 15px;
+}
+
+.social-contacts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.top-contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+.top-contact-btn:hover {
+    color: #ffd700;
+}
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+.social-media a {
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+.social-media a:hover {
+    color: #ffd700;
+}
+/* Adjust header position */
+.header {
+    margin-top: 40px;
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .top-contact-btn span {
+        display: none;
+    }
+
+    .social-contacts {
+        gap: 10px;
+    }
+
+    .social-media {
+        margin-left: 10px;
+        padding-left: 10px;
+    }
+
+    .top-bar .container {
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .menu_toggle {
+        display: block;
+    }
+
+    .menu_nivel_1 {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--mobile-menu-bg);
+        position: absolute;
+        top: 70px;
+        left: 0;
+    }
+
+    .menu_nivel_1.active {
+        display: flex;
+    }
+
+    .menu_lista {
+        flex-direction: column;
+    }
+
+    .menu_nivel_2,
+    .menu_nivel_3,
+    .menu_nivel_4 {
+        position: static;
+        width: 100%;
+        padding-left: 10xp;
+        margin-top: 5px; /* 📌 Adiciona espaçamento entre submenus no mobile */
+    }
+}
+
+/* 📌 NOVO: Submenus se expandem para baixo no Desktop */
+@media (min-width: 769px) {
+    .menu_item:hover > .menu_nivel_2 {
+        display: block;
+        position: absolute;
+        top: 100%; /* 📌 Agora os submenus aparecem para baixo */
+        left: 0;
+        width: 220px;
+        z-index: 1000;
+    }
+
+    .menu_item:hover > .menu_nivel_3 {
+        display: block;
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 220px;
+        margin-top: 5px;
+    }
+
+    .menu_item:hover > .menu_nivel_4 {
+        display: block;
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 220px;
+        margin-top: 5px;
+    }
+
+
+}
+
+
+.contact-fixed {
+    position: fixed;
+    bottom: 30px;
+    right: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFA726;
+    color: white;
+    padding: 8px 16px;
+    margin-top: 30px; /* Espaçamento entre os botões */
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+    position: relative;
+}
+
+.contact-button:first-child {
+    margin-top: 0; /* Remove a margem superior do primeiro botão */
+}
+
+.contact-button h4 {
+    margin: 0 10px 0 0;
+}
+
+.contact-button img {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: -40px;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+.contact-button:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.05);
+}
+
+/* Estilo base para os botões de contato */
+.top-contact-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white; /* Cor do texto em branco */
+    margin: 10px;
+}
+
+/* Animação de pulso para o ícone do WhatsApp */
+.whatsapp i {
+    font-size: 24px;
+    color: #25D366; /* Cor verde do WhatsApp */
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2); /* Aumenta para o dobro do tamanho */
+    }
+}
+
+/* Animação de vibração para o ícone do telefone */
+.phone i {
+    font-size: 24px;
+    color: white; /* Cor branca para o ícone do telefone */
+    animation: vibrate 0.5s infinite;
+}
+
+@keyframes vibrate {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-2px);
+    }
+    75% {
+        transform: translateX(2px);
+    }
+}
+
+
